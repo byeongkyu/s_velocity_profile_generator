@@ -148,13 +148,22 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
-add_executable(
-  test_profile_node src/main.cpp
-)
 
-target_link_libraries(test_profile_node
+add_library(${PROJECT_NAME}
+  src/s_velocity_profile_generator.cpp
+)
+target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
 )
+
+add_executable(test_profile_node
+  test/test_profile.cpp
+)
+target_link_libraries(test_profile_node
+  ${catkin_LIBRARIES}
+  ${PROJECT_NAME}
+)
+add_dependencies(test_profile_node ${PROJECT_NAME})
 
 
 #############
