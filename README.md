@@ -2,6 +2,12 @@
 
 The ROS package for Generating 1-D S Curved Velocity Profile
 
+Reference:
+- "Trajectory with Double S Velocity Profile" in Trajectory Planning for Automatic Machines and Robots, Springer ([link](https://link.springer.com/book/10.1007/978-3-540-85629-0))
+- https://github.com/nameofuser1/py-scurve
+
+<br/>
+
 ## Installl
 
 ```
