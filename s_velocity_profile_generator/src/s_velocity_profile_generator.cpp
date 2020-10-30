@@ -384,7 +384,7 @@ bool SVelocityProfileGenerator::get_accel_in_trajectory(double t, double &accel)
     // Phase 1
     else if(t >= Tj1_ && t < (Ta_ - Tj1_))
     {
-        ret_val = a_lim_a_;
+        ret_val = phase_accel_sign_ * a_lim_a_;
     }
     // Phase 2
     else if(t >= (Ta_ - Tj1_) && t < Ta_)
@@ -437,7 +437,7 @@ bool SVelocityProfileGenerator::get_vel_in_trajectory(double t, double &vel)
     // Phase 1
     else if(t >= Tj1_ && t < (Ta_ - Tj1_))
     {
-        ret_val = v0_ + a_lim_a_ * (t - Tj1_ / 2.0);
+        ret_val = v0_ + (phase_accel_sign_ * a_lim_a_) * (t - Tj1_ / 2.0);
     }
     // Phase 2
     else if(t >= (Ta_ - Tj1_) && t < Ta_)
@@ -490,7 +490,7 @@ bool SVelocityProfileGenerator::get_pos_in_trajectory(double t, double &pos)
     // Phase 1
     else if(t >= Tj1_ && t < (Ta_ - Tj1_))
     {
-        ret_val = q0_ + v0_ * t + a_lim_a_ * (3.0 * pow(t, 2) - 3.0 * Tj1_ * t + pow(Tj1_, 2)) / 6.0;
+        ret_val = q0_ + v0_ * t + (phase_accel_sign_ * a_lim_a_) * (3.0 * pow(t, 2) - 3.0 * Tj1_ * t + pow(Tj1_, 2)) / 6.0;
     }
     // Phase 2
     else if(t >= (Ta_ - Tj1_) && t < Ta_)
