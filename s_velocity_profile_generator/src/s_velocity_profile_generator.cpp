@@ -98,7 +98,7 @@ bool SVelocityProfileGenerator::get_velocity_at(double t, double &vel)
         return false;
     }
 
-    return get_vel_in_trajectory(t, vel);;
+    return get_vel_in_trajectory(t, vel);
 }
 
 bool SVelocityProfileGenerator::get_position_at(double t, double &pos)
